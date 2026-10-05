@@ -90,11 +90,24 @@ Then just ask:
 
 ### Skill: creative naming
 
-`.claude/skills/creative-naming/SKILL.md` teaches an agent to invent names that do not read like generated slop (no `-ly`, `-ify`, Nova or Lumora-style mashups), then vet them through Namevet before recommending anything. It is picked up automatically in this project. To use it everywhere, copy it:
+[`skills/creative-naming/SKILL.md`](skills/creative-naming/SKILL.md) teaches an agent to invent names that do not read like generated slop (no `-ly`, `-ify`, Nova or Lumora-style mashups), then vet them through Namevet before recommending anything. It works best together with the MCP server above.
+
+**Install**
 
 ```bash
-mkdir -p ~/.claude/skills && cp -r .claude/skills/creative-naming ~/.claude/skills/
+# any agent, detects what you have installed
+npx skills add MikaStiebitz/Namevet
+
+# Claude Code (all projects)
+curl -fsSL https://raw.githubusercontent.com/MikaStiebitz/Namevet/main/skills/creative-naming/SKILL.md \
+  --create-dirs -o ~/.claude/skills/creative-naming/SKILL.md
+
+# Codex and Gemini CLI
+curl -fsSL https://raw.githubusercontent.com/MikaStiebitz/Namevet/main/skills/creative-naming/SKILL.md \
+  --create-dirs -o ~/.agents/skills/creative-naming/SKILL.md
 ```
+
+A deployed Namevet also serves the file at `/skill.md`, and the home page has copy and download buttons. For project-only use, put it in `.claude/skills/creative-naming/` (Claude Code) or `.agents/skills/creative-naming/` (Codex, Gemini CLI). For Claude Desktop or claude.ai, zip the `creative-naming` folder and upload it under Settings > Capabilities > Skills.
 
 Then ask: *"Invent names for a privacy-first note app. Use creative-naming."*
 
@@ -141,9 +154,10 @@ or import the repository in Vercel. It needs no build settings. The web page and
 ## Project layout
 
 ```
-app/            pages, /api routes and the /mcp server
+app/            pages, /api routes, the /mcp server and /skill.md
 components/     UI (checker, ranking, cards, agent setup guide)
 lib/            checks: domains, stores, web, trademarks, scoring, batch
+skills/         the creative-naming agent skill
 docs/           banner and screenshot
 ```
 

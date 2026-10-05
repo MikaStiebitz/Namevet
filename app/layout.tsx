@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Link>
           <nav>
             <Link href="/#mcp">Use with AI</Link>
+            <Link href="/#skill">Skill</Link>
           </nav>
         </header>
         {children}

@@ -1,5 +1,6 @@
 import Checker from "@/components/Checker";
 import McpSection from "@/components/McpSection";
+import SkillSection from "@/components/SkillSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       </section>
       <Checker />
       <McpSection />
+      <SkillSection />
     </main>
   );
 }

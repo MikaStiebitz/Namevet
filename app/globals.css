@@ -202,6 +202,8 @@ tr:last-child td { border-bottom: 0; }
 
 /* ---------- mcp ---------- */
 .mcp { margin-top: 56px; }
+.mcp + .mcp { margin-top: 20px; }
+a.btn { text-decoration: none; }
 .codes { display: grid; gap: 10px; margin-top: 14px; }
 .code { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; padding: 10px 10px 10px 14px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; min-width: 0; }
 .code code { font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
